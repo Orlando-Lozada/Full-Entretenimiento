@@ -1,0 +1,110 @@
+title:       "Full Entretenimiento"
+tagline:     "Pantallas de streaming al mejor precio"
+url:         "https://entretenimientodigital.com.co"
+baseurl:     ""
+lang:        es
+description: "Consigue pantallas de Netflix, Disney+, HBO Max, Prime Video y más al mejor precio en Colombia. Paquetes individuales y combos de streaming."
+author:      "Orlando Lozada"
+phone:       "+57 321 404 7439"
+wa_number:   "573214047439"
+wa_default_text: "Hola, quiero información sobre las pantallas de streaming"
+
+# Redes sociales
+social:
+  whatsapp: "https://wa.me/573214047439"
+
+# SEO Schema base
+seo:
+  type: "LocalBusiness"
+  name: "Full Entretenimiento"
+  logo: "/img/logo.webp"
+  address:
+    locality: "Pitalito"
+    region:   "Huila"
+    country:  "CO"
+
+# Configuración Jekyll
+timezone: America/Bogota
+encoding: UTF-8
+markdown: kramdown
+highlighter: rouge
+
+# Compresión HTML (igual que Almo)
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings:
+    [
+      li, dt, dd, rt, rp,
+      optgroup, option, colgroup,
+      caption, thead, tbody, tfoot,
+      tr, td, th
+    ]
+  ignore:
+    envs: []
+  blanklines: false
+  profile:    false
+  startings:  []
+
+plugins:
+  - jekyll-sitemap
+
+include:
+  - style.css
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Permalinks limpios
+permalink: /:categories/:title/
+
+# Layouts por defecto — evita declarar layout en cada página
+defaults:
+  # Global — todas las páginas usan default
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+  # Homepage
+  - scope:
+      path: "index.html"
+    values:
+      layout: "default"
+
+  # Páginas de servicios principales → service layout + schema Product
+  - scope:
+      path: "servicios"
+    values:
+      layout: "service"
+      schema_type: "Product"
+
+  # Extras → service layout
+  - scope:
+      path: "extras"
+    values:
+      layout: "service"
+      schema_type: "Product"
+
+  # Música y más → service layout
+  - scope:
+      path: "musica"
+    values:
+      layout: "service"
+      schema_type: "Product"
+
+  # Combos → default layout
+  - scope:
+      path: "combos"
+    values:
+      layout: "default"
+
+  # Legal → default layout
+  - scope:
+      path: "legal.html"
+    values:
+      layout: "default"
+      noindex: true
