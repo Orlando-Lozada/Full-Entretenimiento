@@ -1,0 +1,17 @@
+{% comment %} CTA de WhatsApp para páginas de servicio
+Uso: {% include cta-servicio.html servicio="Netflix" precio="13.000" wa_texto="Hola%2C+quiero+una+pantalla+de+Netflix" %}
+{% endcomment %}
+<section class="cta-servicio" aria-label="Comprar {{ include.servicio }}">
+  <div class="content text_center flow">
+    <h2>¿Listo para disfrutar <span class="resaltar">{{ include.servicio }}</span>?</h2>
+    <p>Solo ${{ include.precio }} al mes. Un solo dispositivo. Escríbenos y activamos tu pantalla hoy mismo.</p>
+    <a href="https://wa.me/573214047439?text={{ include.wa_texto }}"
+       target="_blank"
+       rel="noopener noreferrer nofollow"
+       class="bn"
+       aria-label="Comprar {{ include.servicio }} por WhatsApp">
+      Comprar {{ include.servicio }} — ${{ include.precio }} →
+    </a>
+    <p><small>✅ Pago por Nequi · ✅ Activación inmediata · ✅ Soporte incluido</small></p>
+  </div>
+</section>

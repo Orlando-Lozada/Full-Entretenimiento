@@ -1,0 +1,19 @@
+{%- comment -%}
+  Reutilizable: <picture> con AVIF + WebP fallback.
+  Uso:
+    {% include picture.html src="img/header" alt="..." width="1366" height="768" %}
+  Parámetros:
+    - src       (sin extensión, p.ej. "img/header"). Requerido.
+    - alt       (texto alt). "" para imágenes decorativas.
+    - width / height (opcional, mejora CLS).
+    - loading   (default: "lazy")
+    - decoding  (default: "async")
+    - class     (opcional)
+    - aria_hidden ("true" si la imagen es decorativa)
+{%- endcomment -%}
+{%- assign loading  = include.loading  | default: "lazy"  -%}
+{%- assign decoding = include.decoding | default: "async" -%}
+<picture>
+  <source type="image/avif" srcset="/{{ include.src }}.avif">
+  <img src="/{{ include.src }}.webp" alt="{{ include.alt }}" loading="{{ loading }}" decoding="{{ decoding }}"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %}{% if include.class %} class="{{ include.class }}"{% endif %}{% if include.aria_hidden %} aria-hidden="true"{% endif %}>
+</picture>

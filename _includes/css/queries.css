@@ -1,0 +1,117 @@
+/* =============================================
+   QUERIES — Media queries y accesibilidad
+   ============================================= */
+
+/* === MOBILE NAV (≤1024px) === */
+@media (max-width: 1024px) {
+  .nav__toggle { display: flex; }
+
+  .nav__menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: var(--color-dark);
+    padding: calc(var(--nav-height) + 1rem) 1.5rem 2rem;
+    gap: 0.25rem;
+    overflow-y: auto;
+    z-index: 900;
+  }
+
+  .nav__menu--open { display: flex; }
+
+  .nav__menu > li > a,
+  .nav__dropdown-toggle {
+    font-size: 1rem;
+    padding: 0.75em 1em;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 10px;
+  }
+
+  .nav__submenu {
+    position: static;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-block-start: 0.25rem;
+    animation: none;
+    box-shadow: none;
+  }
+
+  .nav__item--cta { margin-inline-start: 0; margin-block-start: 0.5rem; }
+  .nav__item--cta .bn { width: 100%; justify-content: center; }
+  .wrapper { padding-block: 6em 3em; }
+}
+
+/* === EXTRAS PAGE RESPONSIVE === */
+@media (max-width: 1100px) {
+  .extras-split__img { display: none; }
+}
+
+@media (max-width: 768px) {
+  .anime-grid { grid-template-columns: repeat(3, 1fr); padding: 1rem; }
+  .anime-thumb:nth-child(4),
+  .anime-thumb:nth-child(5) { display: none; }
+  .extras-duo__panel { padding: 3rem 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .anime-grid { grid-template-columns: repeat(2, 1fr); }
+  .anime-thumb:nth-child(3) { display: none; }
+  .logo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* === TABLET (≤768px) === */
+@media (max-width: 768px) {
+  .cta { flex-direction: column; }
+  .cta > img { max-width: 100%; }
+
+  .tarjeta { flex-direction: column; }
+
+  .footer__inner { padding-block: 2.5rem 2rem; }
+
+  .pricing-premium-card { padding: 2rem 1.5rem; }
+  .pricing-premium__grid { padding: 1.5rem; }
+
+  .related-grid-premium { grid-template-columns: 1fr; }
+
+  .three_columns { gap: 2.5em; }
+}
+
+/* === MOBILE (≤480px) === */
+@media (max-width: 480px) {
+  .scroll-to-top {
+    width: 45px;
+    height: 45px;
+    inset-inline-end: 15px;
+    inset-block-end: 35px;
+  }
+
+  .boton-whatsapp {
+    inset-block-end: 80px;
+    inset-inline-end: 15px;
+  }
+}
+
+/* === ACCESIBILIDAD === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accion);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-contrast: high) {
+  .boton-whatsapp { border: 2px solid white; }
+}

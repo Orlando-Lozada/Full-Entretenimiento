@@ -1,0 +1,159 @@
+/* =============================================
+   FULL ENTRETENIMIENTO — CSS CRÍTICO BASE
+   Variables, reset, tipografía, containers, botones
+   ============================================= */
+
+/* === 1. VARIABLES === */
+:root {
+  --color-principal:      #231f00;
+  --color-accion:         #c9a200;
+  --color-accion-bright:  #ffe100;
+  --color-texto:          #1a1812;
+  --color-gris:           #f8f7f4;
+  --color-gris1:          #f0efe8;
+  --color-gris2:          #d8d5c8;
+  --color-gris3:          #6b6860;
+  --color-blanco:         #fffffe;
+  --color-dark:           #0d0b00;
+
+  /* Efectos */
+  --shadow:             0 10px 20px rgba(35,31,0,0.12), 0 4px 6px rgba(35,31,0,0.06);
+  --shadow-hover:       0 20px 40px rgba(35,31,0,0.18), 0 8px 12px rgba(35,31,0,0.08);
+  --radius:             20px;
+  --radius-cards:       14px;
+  --transition:         all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth:  all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-fast:    all 0.3s ease;
+  --card-background:    #ffffff;
+  --card-shadow:        var(--shadow);
+  --card-radius:        var(--radius-cards);
+  --card-gap:           1.5rem;
+  --border-radius:      var(--radius);
+
+  /* Layout */
+  --nav-height: 70px;
+}
+
+/* === 2. RESET Y BASE === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5em;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: var(--color-texto);
+  background-color: var(--color-blanco);
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+a { color: inherit; text-decoration: none; }
+
+li { list-style: none; }
+
+/* === 3. TIPOGRAFÍA FLUIDA === */
+h1 { font-size: clamp(2.5rem, 2rem + 2.5vw, 4.5rem); line-height: 1.1; font-weight: 900; }
+h2 { font-size: clamp(2rem, 1.7rem + 1.5vw, 3.25rem); line-height: 1.2; font-weight: 800; }
+h3 { font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem); line-height: 1.3; font-weight: 700; }
+h4 { font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem); font-weight: 700; }
+p, li { font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem); }
+
+/* === 4. CONTENEDORES === */
+
+/* Contenedor estándar — disponible de forma crítica para evitar FOUC */
+.content {
+  width: min(calc(100% - 1.5em), 1320px);
+  margin-inline: auto;
+  padding: 3em 0;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.padding_sections { padding: 3em 0; }
+
+.wrapper {
+  width: min(calc(100% - 2rem), 1320px);
+  margin-inline: auto;
+  padding-block: 8em 5em;
+}
+
+.flow > * + *    { -webkit-margin-before: 1.5em; margin-block-start: 1.5em; }
+.flow--sm > * + * { -webkit-margin-before: 1em; margin-block-start: 1em; }
+
+/* === 5. TEXTO ESPECIAL === */
+.resaltar {
+  color: var(--color-accion);
+  font-weight: 700;
+}
+
+/* === 6. BOTONES === */
+.bn,
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: var(--color-accion);
+  color: var(--color-principal);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  padding: 0.875em 2em;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.bn:hover,
+.boton:hover {
+  background-color: var(--color-principal);
+  color: var(--color-accion);
+  border-color: var(--color-accion);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.boton_secundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: transparent;
+  color: var(--color-accion);
+  font-weight: 700;
+  padding: 0.875em 2em;
+  border-radius: 50px;
+  border: 2px solid var(--color-accion);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.boton_secundario:hover {
+  background-color: var(--color-accion);
+  color: var(--color-principal);
+}

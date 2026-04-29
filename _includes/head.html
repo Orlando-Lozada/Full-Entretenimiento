@@ -1,0 +1,86 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+
+<title>{% if page.title %}{{ page.title }} | Full Entretenimiento{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+<meta name="language" content="es">
+<meta name="country" content="COL">
+<meta name="theme-color" content="#231f00">
+<meta name="robots" content="{% if page.noindex %}noindex, nofollow{% else %}index, follow{% endif %}">
+<meta name="author" content="{{ site.author }} — {{ site.url | remove: 'https://' }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<!-- Open Graph -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="{{ site.url }}{{ page.url }}">
+<meta property="og:title"       content="{% if page.title %}{{ page.title }} | Full Entretenimiento{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:image"       content="{{ site.url }}/img/{% if page.og_image %}{{ page.og_image }}{% else %}logo.webp{% endif %}">
+<meta property="og:locale"      content="es_CO">
+<meta property="og:site_name"   content="{{ site.title }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:url"         content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:title"       content="{% if page.title %}{{ page.title }} | Full Entretenimiento{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:image"       content="{{ site.url }}/img/{% if page.og_image %}{{ page.og_image }}{% else %}logo.webp{% endif %}">
+
+<!-- Favicon -->
+<link rel="shortcut icon"  href="/iconified/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon"                    href="/iconified/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57"      href="/iconified/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72"      href="/iconified/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76"      href="/iconified/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114"    href="/iconified/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120"    href="/iconified/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144"    href="/iconified/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152"    href="/iconified/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180"    href="/iconified/apple-touch-icon-180x180.png">
+
+<!-- Preconnect / DNS prefetch -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+
+<!-- Preload fuentes críticas -->
+<link rel="preload" as="font" href="/css/fonts/lato-v20-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="/css/fonts/lato-v20-latin-700.woff2" type="font/woff2" crossorigin>
+
+{% comment %} Preload imagen hero si se declara en front matter {% endcomment %}
+{% if page.hero %}<link rel="preload" as="image" href="{{ page.hero }}">{% endif %}
+
+<!-- CSS crítico inline (variables, reset, nav, hero — above the fold) -->
+{% include critical-css/critical.html %}
+
+<!-- Fuentes (no bloquean render) -->
+<link rel="stylesheet" href="/css/fonts/styles.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/fonts/styles.css"></noscript>
+
+<!-- CSS principal — carga asíncrona -->
+<link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/style.css"></noscript>
+
+<!-- Schema base: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Full Entretenimiento",
+  "url": "{{ site.url }}/",
+  "image": "{{ site.url }}/img/logo.webp",
+  "telephone": "{{ site.phone }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pitalito",
+    "addressRegion": "Huila",
+    "addressCountry": "CO"
+  },
+  "priceRange": "$",
+  "openingHours": "Mo-We 09:00-21:00, Th-Su 10:00-17:00",
+  "description": "{{ site.description }}"
+}
+</script>
+
+{% comment %} Schema personalizado por página (Product, etc.) {% endcomment %}
+{% if page.schema %}{{ page.schema }}{% endif %}

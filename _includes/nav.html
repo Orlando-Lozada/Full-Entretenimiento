@@ -1,0 +1,90 @@
+<nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+
+  <div class="content-nav">
+    <div class="nav__inner">
+
+      <a href="/" class="nav__brand" aria-label="Full Entretenimiento - inicio">
+    <img src="/img/logo-mini.webp" class="logo" alt="Logo Full Entretenimiento streaming Colombia" width="40" height="40">
+    <span class="nav__nombre">Full Entretenimiento</span>
+  </a>
+
+  <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav__menu" id="nav-menu" role="list">
+
+    <li><a href="/">Inicio</a></li>
+
+    <!-- Entretenimiento sin límites -->
+    <li><a href="/entretenimiento-sin-limites/">🎬 Entretenimiento</a></li>
+
+    <!-- Extras y Música -->
+    <li><a href="/extras/">🎮 Extras y Música</a></li>
+
+    <!-- Combos -->
+    <li class="nav__item--dropdown" id="nav-item-combos">
+      <button class="nav__dropdown-toggle" aria-expanded="false" aria-controls="submenu-combos">
+        🔥 Combos
+        <svg class="nav__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="nav__submenu" id="submenu-combos" role="list">
+        <li><a href="/combos/">🔥 Combos de 2 — Top</a></li>
+        <li><a href="/combos/combos-2/">💥 Combos de 2 — Todos</a></li>
+        <li><a href="/combos/combos-3/">👑 Combos de 3 — Full</a></li>
+      </ul>
+    </li>
+
+    <!-- Contacto -->
+    <li><a href="/contacto/">Contacto</a></li>
+
+    <!-- CTA -->
+    <li class="nav__item--cta">
+      <a href="https://wa.me/573214047439?text=Hola%2C+quiero+informaci%C3%B3n+sobre+las+pantallas+de+streaming"
+         target="_blank" rel="noopener noreferrer nofollow" class="bn"
+         aria-label="Comprar streaming por WhatsApp">
+        Comprar ahora
+      </a>
+     </li>
+
+   </ul>
+    </div>
+   </div>
+
+ </nav>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var menu   = document.getElementById('nav-menu');
+
+    // Hamburger
+    toggle.addEventListener('click', function () {
+      var isOpen = menu.classList.toggle('nav__menu--open');
+      toggle.classList.toggle('nav__toggle--open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Dropdowns
+    document.querySelectorAll('.nav__dropdown-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item   = btn.closest('.nav__item--dropdown');
+        var isOpen = item.classList.toggle('nav__item--open');
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav__item--dropdown')) {
+        document.querySelectorAll('.nav__item--dropdown').forEach(function (item) {
+          item.classList.remove('nav__item--open');
+          var btn = item.querySelector('.nav__dropdown-toggle');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  })();
+</script>

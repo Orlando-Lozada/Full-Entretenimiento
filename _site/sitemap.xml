@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/combos/combos-2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/combos/combos-3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/contacto/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/extras/crunchyroll/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/entretenimiento-sin-limites/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/extras/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/combos/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/legal/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/extras/paramount/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/extras/vix-premium/</loc>
+</url>
+</urlset>

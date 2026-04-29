@@ -1,0 +1,50 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+
+    <a href="https://wa.me/{{ site.wa_number }}?text={{ site.wa_default_text | url_encode }}"
+       class="boton-whatsapp"
+       target="_blank"
+       rel="noopener noreferrer nofollow"
+       aria-label="Contactar por WhatsApp"
+       title="Escríbenos por WhatsApp">
+      <img src="/img/whatsapp-logo.webp" alt="" width="48" height="48" aria-hidden="true">
+    </a>
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver al inicio" title="Volver al inicio">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    {% include nav.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <script src="/js/whatsapp-handler.js" defer></script>
+    <script>
+      (function(){
+        var nav = document.getElementById('nav');
+        var scrollBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', function(){
+          nav.classList.toggle('nav--scrolled', window.scrollY > 80);
+          scrollBtn.classList.toggle('visible', window.scrollY > 300);
+        }, { passive: true });
+
+        scrollBtn.addEventListener('click', function(){
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      })();
+    </script>
+  </body>
+</html>
