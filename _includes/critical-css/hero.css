@@ -4,10 +4,6 @@
    ============================================= */
 
 /* === NAV PRINCIPAL === */
-.nav {
-  z-index: 1000;
-}
-
 .content-nav{
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -28,8 +24,7 @@
   gap: 1rem;
   height: 100%;
 }
-.nav--scrolled {
-  background: rgba(13,11,0,0.98);
+.nav--scrolled .content-nav {
   box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
@@ -60,8 +55,11 @@
   cursor: pointer;
   padding: 8px;
   margin-left: auto;
+  position: relative;
   z-index: 1100;
   flex-shrink: 0;
+  background: transparent;
+  border: none;
 }
 
 .nav__toggle span {
@@ -93,6 +91,7 @@
   top: var(--nav-height);
   left: 0; right: 0;
   background: var(--color-dark);
+  display: flex;
   flex-direction: column;
   max-height: calc(100vh - var(--nav-height));
   overflow-y: auto;
@@ -141,6 +140,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
+  border: none;
   border-bottom: 1px solid rgba(255,255,255,0.07);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -201,21 +201,22 @@
   /* Ocultar hamburger */
   .nav__toggle { display: none; }
 
-  /* Menú siempre visible en fila */
-  .nav__menu,
-  #nav-toggle:checked ~ .nav__menu {
-    display: flex;
+  /* Menú siempre visible en fila, anclado a la derecha del viewport */
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    height: var(--nav-height);
+    padding-inline-end: clamp(1rem, 3vw, 2.5rem);
     flex-direction: row;
     align-items: center;
     gap: 0.25rem;
-    position: static;
     background: none;
-    padding: 0;
     max-height: none;
     overflow: visible;
     box-shadow: none;
-    z-index: auto;
-    margin-left: auto;
+    z-index: 1001;
     transform: none;
     opacity: 1;
     visibility: visible;
@@ -237,6 +238,7 @@
     justify-content: flex-start;
     width: auto;
     white-space: nowrap;
+    background: none;
   }
 
   .nav__menu > li > a:not(.bn):hover,
