@@ -5,6 +5,8 @@
 /* === MOBILE NAV (≤1024px) === */
 @media (max-width: 1024px) {
 
+  .nav__toggle { display: flex; }
+
   .nav__menu > li > a,
   .nav__dropdown-toggle {
     font-size: 1rem;

@@ -34,16 +34,20 @@
   align-items: center;
   gap: 0.6rem;
   text-decoration: none;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
-.logo { width: 40px; height: 40px; -o-object-fit: contain; object-fit: contain; }
+.logo { width: 40px; height: 40px; -o-object-fit: contain; object-fit: contain; flex-shrink: 0; }
 
 .nav__nombre {
   font-size: clamp(0.85rem, 0.8rem + 0.25vw, 1rem);
   font-weight: 700;
   color: var(--color-accion);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 /* === HAMBURGER (label, CSS-only) === */

@@ -49,6 +49,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5em;
+  overflow-x: clip;
 }
 
 body {
@@ -57,6 +58,14 @@ body {
   background-color: var(--color-blanco);
   line-height: 1.6;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* Contain infinite-scroll tracks before style.css loads */
+.plataformas-slider,
+.series-marquee,
+.testimonios-carousel {
+  overflow: hidden;
 }
 
 img {
